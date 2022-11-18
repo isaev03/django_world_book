@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% extends "base_generic.html" %}
+
+{% block user_styles %}
+<style>
+           ul.hr {
+            margin: 0;
+            padding: 4px;
+           }
+           ul.hr li {
+            display: inline;
+            margin-right: 5px;
+            padding: 3px;
+        </style>
+{% endblock %}
+
+{% block content %}
+    <h1>{{ author.first_name }} {{ author.last_name }}</h1>
+
+    <p><strong>Дата рождения:</strong> {{ author.date_of_birth }}</p>
+    <p><strong>Дата смерти:</strong> {{ author.date_of_death }}</p>
+
+
+        <p><strong>Выпущенные книги:</strong>
+        <ul>
+            {% for book in author.book_set.all %}
+            <li><a href="{{ book.get_absolute_url }}">{{ book.title }}</a></li>
+            {% endfor %}
+        </ul>
+        </p>
+
+{% endblock %}
+
+
