@@ -20,8 +20,8 @@
   {% endif %}
 </table>
 
-<h3>Добавить в БД автора книги</h3>
-<form method="POST" action="/create/">
+<h3>Добавить в БД автора книги</h3> 
+<form method="POST" action="/authors_add/create/">
   {% csrf_token %}
   <table>
     {{ form }}
